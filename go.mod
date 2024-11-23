@@ -8,7 +8,7 @@ require (
 	github.com/gomig/avatar v1.0.3
 	github.com/google/uuid v1.6.0
 	github.com/gowool/cr v0.0.1
-	github.com/gowool/echox v0.0.7
+	github.com/gowool/echox v0.0.8
 	github.com/gowool/rbac v0.0.3
 	github.com/labstack/echo/v4 v4.12.0
 	github.com/pquerna/otp v1.4.0
@@ -20,6 +20,7 @@ require (
 
 require (
 	github.com/boombuler/barcode v1.0.2 // indirect
+	github.com/expr-lang/expr v1.16.9 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.7 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/gomig/utils v1.0.1 // indirect
