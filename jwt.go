@@ -46,7 +46,7 @@ func ParseJWT(token string, verificationKey string) (jwt.MapClaims, error) {
 
 // NewJWT generates and returns new HS256 signed JWT.
 func NewJWT(payload jwt.MapClaims, signingKey string, exp time.Duration) (string, error) {
-	claims := jwt.MapClaims{"exp": time.Now().Add(exp).Unix()}
+	claims := jwt.MapClaims{"exp": time.Now().Add(exp).UTC().Unix()}
 
 	for k, v := range payload {
 		claims[k] = v

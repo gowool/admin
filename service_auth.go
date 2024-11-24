@@ -72,7 +72,7 @@ func (s *DefaultAuthService) Refresh(ctx context.Context, token string) (model.S
 		_ = s.refreshRepository.Delete(ctx, refresh.ID)
 	}()
 
-	if time.Now().After(refresh.Expires) {
+	if time.Now().UTC().After(refresh.Expires) {
 		return model.Session{}, ErrRefreshTokenExpired
 	}
 
@@ -112,7 +112,7 @@ func (s *DefaultAuthService) Session(ctx context.Context, a model.Admin, twoFA b
 		AdminID:  a.ID,
 		Token:    uuid.NewString(),
 		Metadata: map[string]any{"2fa": twoFA},
-		Expires:  time.Now().Add(s.config.RefreshTokenDuration),
+		Expires:  time.Now().Add(s.config.RefreshTokenDuration).UTC(),
 	}
 
 	if err = s.refreshRepository.Create(ctx, &refreshToken); err != nil {
